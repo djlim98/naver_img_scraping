@@ -17,7 +17,6 @@ def naver_scraping():
         counter+=1
         s1=i.get_attribute('src')
         print(i.get_attribute('src'))
-        
         req = urllib.request.urlretrieve(s1, "small_img_"+str(counter) + time.strftime('%m-%d-%H', time.localtime(time.time())) + ".jpg")
 
 
