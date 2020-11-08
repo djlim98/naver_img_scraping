@@ -19,7 +19,6 @@ def naver_scraping():
         print(i.get_attribute('src'))
         req = urllib.request.urlretrieve(s1, "small_img_"+str(counter) + time.strftime('%m-%d-%H', time.localtime(time.time())) + ".jpg")
 
-
     driver.switch_to.frame('da_iframe_time')
     big_img = driver.find_element_by_xpath('//*[@id="ac_banner_a"]/img').get_attribute('src')
     print(big_img)
