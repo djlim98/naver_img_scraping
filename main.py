@@ -19,8 +19,8 @@ def naver_scraping():
         print(i.get_attribute('src'))
         req = urllib.request.urlretrieve(s1, "small_img_"+str(counter) +'_'+ time.strftime('%m-%d-%I%p-%M-%S', time.localtime(time.time())) + ".jpg")
 
-    driver.switch_to.frame('da_iframe_time')
-    big_imgs = driver.find_elements_by_xpath('//*[@id="ac_banner_a"]//img')
+    #driver.switch_to.frame('da_iframe_time')
+    big_imgs = driver.find_elements_by_xpath('//*[@id="da_top"]//img')
     print(big_imgs)
     counter=0
     for i in big_imgs:
@@ -31,7 +31,7 @@ def naver_scraping():
 
     driver.quit()
 
-    threading.Timer(100, naver_scraping).start()
+    threading.Timer(10, naver_scraping).start()
 
 def mobile_naver_scraping():
     driver = webdriver.Chrome('./chromedriver')
@@ -48,7 +48,7 @@ def mobile_naver_scraping():
     
     driver.quit()
 
-    threading.Timer(100, mobile_naver_scraping).start()
+    threading.Timer(10, mobile_naver_scraping).start()
 
 def youtube_scraping():
     driver = webdriver.Chrome('./chromedriver')
@@ -67,10 +67,8 @@ def youtube_scraping():
     f.close()
     driver.quit()
 
-    threading.Timer(100, youtube_scraping).start()
+    threading.Timer(10, youtube_scraping).start()
 
-mobile_naver_scraping()
-youtube_scraping()
 naver_scraping()
 
                         
