@@ -48,7 +48,8 @@ def mobile_naver_scraping():
     for i in mobile_small_img:
         seq=seq+1
         mobile_small_img_link=i.get_attribute('src')
-        req = urllib.request.urlretrieve(mobile_small_img_link, "mobile_small_img_"+str(seq)+"_"+ time.strftime('%m-%d-%I%p-%M-%S', time.localtime(time.time())) + ".jpg")
+        print(mobile_small_img_link)
+        req = urllib.request.urlretrieve(mobile_small_img_link, time.strftime('%Y-%m-%d_naverM_%H시_', time.localtime(time.time()))+str(seq)+ ".jpg")
     
     driver.quit()
 
@@ -67,13 +68,11 @@ def youtube_scraping():
     ad_subject=driver.find_element_by_xpath('//*[@id="container"]/h1/yt-formatted-string').text
     print(ad_subject)
     f=open("youtube_ad_list.txt",'a', encoding='utf8')
-    f.writelines(time.strftime('%m-%d-%I%p-%M-%S', time.localtime(time.time()))+' '+ad_subject+' LINK : '+ad_link+'\n')
+    f.writelines(time.strftime('%Y-%m-%d_youtube_%H시', time.localtime(time.time()))+' '+ad_subject+' LINK : '+ad_link+'\n')
     f.close()
     driver.quit()
 
     threading.Timer(10, youtube_scraping).start()
 
-naver_scraping()
-youtube_scraping()
 mobile_naver_scraping()
                         
