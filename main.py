@@ -17,7 +17,9 @@ def naver_scraping():
         seq+=1
         s1=i.get_attribute('src')
         print(i.get_attribute('src'))
-        req = urllib.request.urlretrieve(s1, time.strftime('%Y-%m-%d/%Y-%m-%d_naver_%H시_small', time.localtime(time.time()))+str(seq) + ".jpg")
+        name=time.strftime('%Y-%m-%d/%Y-%m-%d_naver_%H_small', time.localtime(time.time()))+str(seq) + ".jpg"
+        name=name.encode('utf8')
+        req = urllib.request.urlretrieve(s1, name)
 
     
     big_imgs = driver.find_elements_by_xpath('//*[@id="da_top"]//img')
@@ -31,7 +33,9 @@ def naver_scraping():
         seq+=1
         s1=i.get_attribute('src')
         print(i.get_attribute('src'))
-        req = urllib.request.urlretrieve(s1, time.strftime('%Y-%m-%d/%Y-%m-%d_naver_%H시_big', time.localtime(time.time()))+str(seq) + ".jpg")
+        name=time.strftime('%Y-%m-%d/%Y-%m-%d_naver_%H_big', time.localtime(time.time()))+str(seq) + ".jpg"
+        name=name.encode('utf8')
+        req = urllib.request.urlretrieve(s1, name)
 
     driver.quit()
 
