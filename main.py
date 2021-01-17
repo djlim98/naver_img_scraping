@@ -4,7 +4,6 @@ import urllib.request
 import json
 import os
 import threading
-import time
  
 def naver_scraping():
     driver = webdriver.Chrome('./chromedriver')
