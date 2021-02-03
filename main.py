@@ -12,6 +12,7 @@ def naver_scraping():
 
     small_imgs=driver.find_elements_by_xpath('//*[@id="da_brand"]//img')
     seq=0
+    
     for i in small_imgs:
         seq+=1
         s1=i.get_attribute('src')
